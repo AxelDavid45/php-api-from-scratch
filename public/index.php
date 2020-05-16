@@ -9,4 +9,19 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_FILES
 );
 
-var_dump($request->getUri()->getPath());
+$httpMethod = $request->getMethod();
+$uri = $request->getUri()->getPath();
+
+//Create the dispatcher with routes
+$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector
+$route) {
+    //Create a route
+    $route->addRoute('GET', '/books', [
+        'App\Controller\Books',
+        'index'
+    ]);
+});
+
+
+$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+var_dump($routeInfo[0]);

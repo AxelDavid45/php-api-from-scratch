@@ -1,0 +1,13 @@
+{
+    "name": "axele/api-scratch",
+    "description": "An API created with standards",
+    "version": "1.0",
+    "require": {
+        "laminas/laminas-diactoros": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}

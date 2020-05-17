@@ -4,14 +4,14 @@
 namespace App\Controllers;
 
 
-use Laminas\Diactoros\Response\JsonResponse;
+use Laminas\Diactoros\Response;
 
 
 class Books
 {
-    public function index() : JsonResponse
+    public function index() : Response
     {
-        $jsonResponse = [
+        $resource = [
             'data' => [
                 'type' => 'books',
                 'id' => 1,
@@ -23,9 +23,13 @@ class Books
             ]
         ];
 
-        return new JsonResponse($jsonResponse, 200, [
-            'content-type' => 'application/vnd.api+json'
-        ]);
+        //Create the response and append in the body the data
+        $response = new Response();
+        $response->getBody()->write(json_encode($resource));
+
+        return $response
+            ->withHeader('content-type', 'application/vnd.api+json')
+            ->withStatus(200);
 
     }
 }

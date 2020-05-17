@@ -1,5 +1,6 @@
 <?php
 require_once "../vendor/autoload.php";
+
 //Create the object that standards the request
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_SERVER,
@@ -9,19 +10,19 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_FILES
 );
 
-$httpMethod = $request->getMethod();
-$uri = $request->getUri()->getPath();
+//Create the router
+$router = new League\Route\Router();
+//Create a reponse factory PSR-17
+$responseFactory = new \Laminas\Diactoros\ResponseFactory();
+//Create the object JsonStrategy
+$strategy = new League\Route\Strategy\JsonStrategy($responseFactory);
+//Set the strategy
+$router->setStrategy($strategy);
 
-//Create the dispatcher with routes
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector
-$route) {
-    //Create a route
-    $route->addRoute('GET', '/books', [
-        'App\Controller\Books',
-        'index'
-    ]);
-});
+//Routes
+$router->get('/books', 'App\Controllers\Books::index');
 
-
-$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
-var_dump($routeInfo[0]);
+//Dispatch the response
+$response = $router->dispatch($request);
+// send the response to the browser
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);

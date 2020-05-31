@@ -1,7 +1,7 @@
 version: "3"
 services:
     php-cli:
-        image: php:7.4-cli
+        build: ./builds/php-cli
         volumes:
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/builds
@@ -26,7 +26,6 @@ services:
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor
             - /mnt/c/Users/axele/php-projects/api-scratch/.idea
-
 
 networks:
     default:

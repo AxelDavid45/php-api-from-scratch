@@ -17,7 +17,7 @@ class Books
                 'id' => 1,
                 'attributes' => [
                     'name' => 'Harry Potter',
-                    'author' => 'Axel',
+                    'author' => 'Axel Espinosa Meneses',
                     'pages' => 50
                 ]
             ]

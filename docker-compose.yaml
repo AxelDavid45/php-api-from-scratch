@@ -2,12 +2,11 @@ version: "3"
 services:
     nginx-php:
         build: ./builds/nginx
-        networks: 
-            - php-network
         ports: 
             - "80:80"
+        depends_on: 
+            - php-language    
         volumes: 
-            - - ./builds/nginx/site.conf
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/builds
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor
@@ -15,14 +14,13 @@ services:
     
     php-language:
         image: php:7.4-fpm
-        depends_on: 
-            - nginx-php
         volumes: 
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor
             - /mnt/c/Users/axele/php-projects/api-scratch/.idea
 
-    networks:
-        default:
-            external: 
-                name: php-network 
+
+networks:
+    default:
+        external:
+            name: php-network

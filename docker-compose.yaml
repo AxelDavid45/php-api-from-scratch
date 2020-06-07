@@ -27,6 +27,16 @@ services:
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor
             - /mnt/c/Users/axele/php-projects/api-scratch/.idea
 
+    database:
+        image: mysql:8.0.20
+        environment:
+             - MYSQL_ROOT_PASSWORD=123456789
+        ports:
+            - "3306:3306"
+        volumes:
+            - /home/axele/bd-files/mysql-files:/var/lib/mysql
+            - /home/axele/bd-files/mysql-exports:/usr/src
+
 networks:
     default:
         external:

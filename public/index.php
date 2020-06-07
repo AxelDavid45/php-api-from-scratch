@@ -12,7 +12,7 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 
 //Create the router
 $router = new League\Route\Router();
-//Create a reponse factory PSR-17
+//Create a response factory PSR-17
 $responseFactory = new \Laminas\Diactoros\ResponseFactory();
 //Create the object JsonStrategy
 $strategy = new League\Route\Strategy\JsonStrategy($responseFactory);

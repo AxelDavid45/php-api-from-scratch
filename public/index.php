@@ -26,6 +26,7 @@ $capsule->addConnection(
 
 // Make this Capsule instance available globally via static methods... (optional)
 $capsule->setAsGlobal();
+$capsule->bootEloquent();
 
 //Create the object that standards the request
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(

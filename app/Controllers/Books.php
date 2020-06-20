@@ -17,6 +17,7 @@ class Books
         $user->birthday = '2000-08-22';
         $user->save();
 
+
         $resource = [
             'data' => [
                 'type' => 'books',

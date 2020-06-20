@@ -2,16 +2,15 @@
 
 require_once "../vendor/autoload.php";
 // Set the event dispatcher used by Eloquent models... (optional)
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
+use Dotenv\Dotenv;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 //Loads environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 
 
-$capsule = new Capsule;
+$capsule = new Capsule();
 
 $capsule->addConnection(
     [
@@ -21,19 +20,12 @@ $capsule->addConnection(
         'username'  => getenv('DATABASE_USR'),
         'password'  => getenv('DATABASE_PASS'),
         'charset'   => getenv('DATABASE_CHARSET'),
-        'collation' => getenv('DATABASE_COLLATION'),
-        'prefix'    => '',
+        'collation' => getenv('DATABASE_COLLATION')
     ]
 );
 
-
-$capsule->setEventDispatcher(new Dispatcher(new Container));
-
 // Make this Capsule instance available globally via static methods... (optional)
 $capsule->setAsGlobal();
-
-// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-$capsule->bootEloquent();
 
 //Create the object that standards the request
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(

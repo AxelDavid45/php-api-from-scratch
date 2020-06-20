@@ -5,12 +5,18 @@ namespace App\Controllers;
 
 
 use Laminas\Diactoros\Response;
-
+use App\User;
 
 class Books
 {
     public function index() : Response
     {
+        $user = new User();
+        $user->name = 'Axel Espinosa';
+        $user->email = 'axel@axel.com';
+        $user->birthday = '2000-08-22';
+        $user->save();
+
         $resource = [
             'data' => [
                 'type' => 'books',

@@ -21,7 +21,7 @@ services:
             - /mnt/c/Users/axele/php-projects/api-scratch/.idea
     
     php-language:
-        image: php:7.4-fpm
+        build: ./builds/php-fpm
         volumes: 
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor

@@ -17,7 +17,7 @@ environments:
     development:
         adapter: mysql
         host: database
-        name: api_services
+        name: api_english
         user: root
         pass: 123456789
         port: 3306

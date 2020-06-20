@@ -5,7 +5,8 @@
         "laminas/laminas-httphandlerrunner": "^1.1",
         "ext-json": "*",
         "robmorgan/phinx": "^0.12.1",
-        "illuminate/database": "^7.16"
+        "illuminate/database": "^7.16",
+        "vlucas/phpdotenv": "^5.0"
     },
     "autoload": {
         "psr-4": {

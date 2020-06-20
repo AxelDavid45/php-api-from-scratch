@@ -1,27 +1,31 @@
 <?php
 
 require_once "../vendor/autoload.php";
-
+// Set the event dispatcher used by Eloquent models... (optional)
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
+
+//Loads environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 
 $capsule = new Capsule;
 
 $capsule->addConnection(
     [
         'driver'    => 'mysql',
-        'host'      => 'localhost',
-        'database'  => 'database',
-        'username'  => 'root',
-        'password'  => 'password',
-        'charset'   => 'utf8',
-        'collation' => 'utf8_unicode_ci',
+        'host'      => getenv('DATABASE_HOST'),
+        'database'  => getenv('DATABASE'),
+        'username'  => getenv('DATABASE_USR'),
+        'password'  => getenv('DATABASE_PASS'),
+        'charset'   => getenv('DATABASE_CHARSET'),
+        'collation' => getenv('DATABASE_COLLATION'),
         'prefix'    => '',
     ]
 );
 
-// Set the event dispatcher used by Eloquent models... (optional)
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
 
 $capsule->setEventDispatcher(new Dispatcher(new Container));
 

@@ -16,10 +16,10 @@ environments:
 
     development:
         adapter: mysql
-        host: database
+        host: localhost
         name: api_english
         user: root
-        pass: 123456789
+        pass: ''
         port: 3306
         charset: utf8mb4
 

@@ -15,13 +15,12 @@ $capsule = new Capsule();
 $capsule->addConnection(
     [
         'driver'    => 'mysql',
-        'host'      => getenv('DATABASE_HOST'),
-        'database'  => getenv('DATABASE'),
-        'username'  => 'root',
+        'host'      => $_ENV['DATABASE_HOST'],
+        'database'  => $_ENV['DATABASE'],
+        'username'  => $_ENV['DATABASE_USR'],
         'password'  => '',
-        'charset'   => 'utf8mb4',
-        'collation' => 'utf8mb4_unicode_ci',
-        'prefix'    => '',
+        'charset'   => $_ENV['DATABASE_CHARSET'],
+        'collation' => $_ENV['DATABASE_COLLATION']
     ]
 );
 

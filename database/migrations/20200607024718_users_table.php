@@ -11,7 +11,6 @@ class UsersTable extends AbstractMigration
         $table->addColumn('name', 'string', ['limit' => 60])
             ->addColumn('email', 'string', ['limit' => 50])
             ->addColumn('birthday', 'date')
-            ->addColumn('last_login', 'datetime')
             ->addColumn('token', 'text')
             ->addTimestamps()
             ->addIndex('email', ['unique' => true])

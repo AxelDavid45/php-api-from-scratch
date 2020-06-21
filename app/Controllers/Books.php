@@ -11,10 +11,12 @@ class Books
 {
     public function index() : Response
     {
+        //Active record
         $user = new User();
-        $user->name = 'Axel Espinosa';
-        $user->email = 'axel@axel.com';
+        $user->name = 'Axel Espinosa Meneses';
+        $user->email = 'axel@axeasl.com';
         $user->birthday = '2000-08-22';
+        $user->token = 'asdasdasdasdasdasdasd';
         $user->save();
 
 
@@ -23,8 +25,8 @@ class Books
                 'type' => 'books',
                 'id' => 1,
                 'attributes' => [
-                    'name' => 'Harry Potter',
-                    'author' => 'Axel Espinosa Meneses',
+                    'name' => $user->name,
+                    'author' => $user->email,
                     'pages' => 50
                 ]
             ]

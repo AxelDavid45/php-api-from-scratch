@@ -26,6 +26,8 @@ services:
             - .:/var/www
             - /mnt/c/Users/axele/php-projects/api-scratch/vendor
             - /mnt/c/Users/axele/php-projects/api-scratch/.idea
+        depends_on:
+          - database
 
     database:
         image: mysql:8.0.20

@@ -11,6 +11,7 @@ class Books
 {
     public function index() : Response
     {
+        phpinfo();
         $user = new User();
         $user->name = 'Axel Espinosa';
         $user->email = 'axel@axel.com';

@@ -4,7 +4,15 @@
 namespace App\Models;
 
 
-class Examples
+use Illuminate\Database\Eloquent\Model;
+
+class Examples extends Model
 {
+    protected $table = 'examples';
+
+    public function word()
+    {
+        $this->belongsTo('App\Models\Words');
+    }
 
 }

@@ -4,7 +4,14 @@
 namespace App\Models;
 
 
-class Meanings
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Meanings extends Model
+{
+    protected $table = 'meanings';
+
+    public function word()
+    {
+        $this->belongsTo('App\Models\Words');
+    }
 }

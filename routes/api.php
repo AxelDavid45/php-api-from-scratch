@@ -1,3 +1,3 @@
 <?php
 
-$router->get('/api',  'App\Controllers\HomeController::index');
+$router->get('/',  'App\Controllers\HomeController::index');

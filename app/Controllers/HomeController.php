@@ -8,20 +8,18 @@ use Laminas\Diactoros\Response;
 
 class HomeController
 {
-    public function index() : Response
+    public function index(): Response
     {
         $response = new Response();
         $body = [
-          'data' => [
-              'type' => 'endpoints',
-              'attributes' => [
-                  $_ENV['APP_URL'].'/api/words/',
-                  $_ENV['APP_URL'].'/api/meanings/',
-                  $_ENV['APP_URL'].'/api/examples/',
-                  $_ENV['APP_URL'].'/api/synonyms/',
+            'data' => [
+                'type' => 'endpoints',
+                "words" => $_ENV['APP_URL'] . '/api/words/',
+                "meanings" => $_ENV['APP_URL'] . '/api/meanings/',
+                "examples" => $_ENV['APP_URL'] . '/api/examples/',
+                "synonyms" => $_ENV['APP_URL'] . '/api/synonyms/',
 
-              ]
-          ]
+            ]
         ];
 
         //Send the json

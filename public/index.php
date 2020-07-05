@@ -46,8 +46,10 @@ $strategy = new League\Route\Strategy\JsonStrategy($responseFactory);
 //Set the strategy
 $router->setStrategy($strategy);
 
-//Routes
-$router->get('/books', 'App\Controllers\Books::index');
+/**
+ * Routes imported
+ **/
+require_once "../routes/api.php";
 
 //Dispatch the response
 $response = $router->dispatch($request);

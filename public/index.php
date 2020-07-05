@@ -18,7 +18,7 @@ $capsule->addConnection(
         'host'      => $_ENV['DATABASE_HOST'],
         'database'  => $_ENV['DATABASE'],
         'username'  => $_ENV['DATABASE_USR'],
-        'password'  => '',
+        'password'  => $_ENV['DATABASE_PASS'],
         'charset'   => $_ENV['DATABASE_CHARSET'],
         'collation' => $_ENV['DATABASE_COLLATION']
     ]

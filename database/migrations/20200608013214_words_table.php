@@ -13,6 +13,7 @@ class WordsTable extends AbstractMigration
             ->addColumn('typeof', 'string')
             ->addColumn('views', 'biginteger')
             ->addColumn('workspace_id', 'integer')
+            ->addTimestamps()
             ->addForeignKey('workspace_id', 'workspaces', 'id', ['delete' => 'CASCADE'])
             ->create();
     }

@@ -14,10 +14,10 @@ class HomeController
         $body = [
             'data' => [
                 'type' => 'endpoints',
-                "words" => $_ENV['APP_URL'] . '/api/words/',
-                "meanings" => $_ENV['APP_URL'] . '/api/meanings/',
-                "examples" => $_ENV['APP_URL'] . '/api/examples/',
-                "synonyms" => $_ENV['APP_URL'] . '/api/synonyms/',
+                "words" => $_ENV['APP_URL'] . 'words/',
+                "meanings" => $_ENV['APP_URL'] . 'meanings/',
+                "examples" => $_ENV['APP_URL'] . 'examples/',
+                "synonyms" => $_ENV['APP_URL'] . 'synonyms/',
 
             ]
         ];

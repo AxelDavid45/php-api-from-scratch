@@ -27,7 +27,7 @@ class Words extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\Users');
+        return $this->belongsTo('App\Models\Users', 'user_id');
     }
 
 }

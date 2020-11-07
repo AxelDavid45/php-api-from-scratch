@@ -11,6 +11,7 @@ class MeaningsTable extends AbstractMigration
                               ['collation' => 'utf8mb4_general_ci',]);
         $table->addColumn('meaning', 'text')
             ->addColumn('word_id', 'integer')
+            ->addTimestamps()
             ->addForeignKey('word_id', 'words',
                             'id', ['delete' => 'CASCADE'])
             ->create();

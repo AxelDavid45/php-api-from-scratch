@@ -18,7 +18,7 @@ $capsule->addConnection(
         'host'      => $_ENV['DATABASE_HOST'],
         'database'  => $_ENV['DATABASE'],
         'username'  => $_ENV['DATABASE_USR'],
-        'password'  => '',
+        'password'  => $_ENV['DATABASE_PASS'],
         'charset'   => $_ENV['DATABASE_CHARSET'],
         'collation' => $_ENV['DATABASE_COLLATION']
     ]
@@ -46,8 +46,10 @@ $strategy = new League\Route\Strategy\JsonStrategy($responseFactory);
 //Set the strategy
 $router->setStrategy($strategy);
 
-//Routes
-$router->get('/books', 'App\Controllers\Books::index');
+/**
+ * Routes imported
+ **/
+require_once "../routes/api.php";
 
 //Dispatch the response
 $response = $router->dispatch($request);
